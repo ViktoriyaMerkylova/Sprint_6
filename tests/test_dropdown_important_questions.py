@@ -8,7 +8,7 @@ from pages.important_questions_page import ImportantQuestionsPage
 @allure.feature('FAQ на главной странице "Яндекс Самокат"')
 class TestHomePage:
     @allure.title('Тест открытия ответов в FAQ')
-    @allure.description('Клик по вопросам FAQ по очереди > открываются ответы на вопросы по очереди')
+    @allure.description('Клик по вопросам FAQ по очереди, открываются ответы на вопросы по очереди')
     @pytest.mark.parametrize(
         'button, answer, expected_text',
         [

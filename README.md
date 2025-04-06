@@ -29,9 +29,9 @@
 
 5. Просмотреть отчет:
  
-    Запуск тестов с генерацией от allure
-    > $env:PYTHONPATH = "."
-    > pytest -v --alluredir=allure_results
+    Запуск тестов с генерацией от allure 
+    pytest --alluredir=allure-results
     
     Просмотр тестов в браузере
-    > allure serve allure_results
+    allure serve allure-results
+
