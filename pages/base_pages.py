@@ -1,29 +1,35 @@
-import allure
-
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions
 
-class BasePage:
+class BasePages:
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
 
-    def find(self, locator):
-        return self.driver.find_element(*locator)
+    def send_keys(self, locator, value):
+        self.driver.find_element(*locator).send_keys(value)
 
-    @allure.step('Проскроллить до элемента')
-    def scroll_to_element(self, locator):
-        element = self.find(locator)
-        self.driver.execute_script('arguments[0].scrollIntoView();', element)
-
-    @allure.step('Подождать прогрузки элемента')
-    def wait_visibility_of_element(self, locator):
-        return self.wait.until(EC.visibility_of_element_located(locator))
-
-    @allure.step('Кликнуть на элемент')
     def click_on_element(self, locator):
-        self.find(locator).click()
+        self.driver.find_element(*locator).click()
 
-    @allure.step('Получить текст на элементе')
-    def get_text_on_element(self, locator):
-        return self.find(locator).text
+    def wait_for_visibility_of_element(self, locator):
+        WebDriverWait(self.driver, 30).until(
+            expected_conditions.visibility_of_element_located(locator))
+
+    def wait_for_element_to_be_clickable(self, locator):
+        WebDriverWait(self.driver, 3).until(
+            expected_conditions.element_to_be_clickable(locator))
+
+    def scroll(self, locator):
+        element = self.driver.find_element(*locator)
+        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    def get_current_url(self):
+        current_url = self.driver.current_url
+        return current_url
+
+    def get_actually_text(self, locator):
+        actually_text = self.driver.find_element(*locator).text
+        return actually_text
+
+    def switch_to_window(self):
+        self.driver.switch_to.window(self.driver.window_handles[1])
