@@ -1,6 +1,6 @@
 import allure
 from selenium.webdriver import Keys
-from Locators.order_verification_locators import OrderVerificationLocators
+from locators.order_verification_locators import OrderVerificationLocators
 from pages.base_pages import BasePages
 
 class OrderVerificationPages(BasePages):

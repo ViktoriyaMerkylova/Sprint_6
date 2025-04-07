@@ -1,7 +1,7 @@
 import pytest
 import allure
-from Locators.order_verification_locators import OrderVerificationLocators
-from Locators.important_questions_locators import ImportalQuestionLocators
+from locators.order_verification_locators import OrderVerificationLocators
+from locators.important_questions_locators import ImportalQuestionLocators
 from data import Data
 from pages.order_verification_pages import OrderVerificationPages
 from pages.important_questions_page import ImportantQuestionsPage

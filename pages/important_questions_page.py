@@ -1,5 +1,5 @@
 import allure
-from Locators.important_questions_locators import ImportalQuestionLocators
+from locators.important_questions_locators import ImportalQuestionLocators
 from pages.base_pages import BasePages
 
 

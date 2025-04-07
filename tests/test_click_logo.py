@@ -1,5 +1,5 @@
 import allure
-from Locators.important_questions_locators import ImportalQuestionLocators
+from locators.important_questions_locators import ImportalQuestionLocators
 from pages.order_verification_pages import OrderVerificationPages
 from pages.important_questions_page import ImportantQuestionsPage
 from pages.dzen_page import DzenPage
