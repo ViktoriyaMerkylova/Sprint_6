@@ -1,4 +1,5 @@
 class Curl:
-    URL_SAMOKAT = 'https://qa-scooter.praktikum-services.ru/'
-    URL_ORDER = 'https://qa-scooter.praktikum-services.ru/order/'
-    URL_DZEN = 'https://dzen.ru/'
+    BASE_URL = 'https://qa-scooter.praktikum-services.ru'
+    URL_SAMOKAT = BASE_URL + '/'
+    URL_ORDER = BASE_URL + '/order/'
+    URL_DZEN = "https://dzen.ru/?yredirect=true"

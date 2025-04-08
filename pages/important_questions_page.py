@@ -1,6 +1,7 @@
 import allure
 from locators.important_questions_locators import ImportalQuestionLocators
 from pages.base_pages import BasePages
+from curl import Curl
 
 
 class ImportantQuestionsPage(BasePages):
@@ -13,7 +14,7 @@ class ImportantQuestionsPage(BasePages):
     @allure.step('Проверка открытия страницы "Яндекс Самокат"')
     def check_go_to_home_page(self):
         current_url = self.get_current_url()
-        assert current_url == "https://qa-scooter.praktikum-services.ru/"
+        assert current_url == Curl.URL_SAMOKAT
 
     @allure.step('Клик на логотип "Яндекс"')
     def click_yandex_logo(self):
@@ -35,3 +36,8 @@ class ImportantQuestionsPage(BasePages):
         self.wait_for_visibility_of_element(answer)
         actually_text = self.get_actually_text(answer)
         assert actually_text == expected_text
+
+    @allure.step('Клик на логотип "Яндекс"')
+    def click_order_button_ya(self):
+        self.wait_for_element_to_be_clickable(ImportalQuestionLocators.header_order_button)
+        self.click_on_element(ImportalQuestionLocators.header_order_button)

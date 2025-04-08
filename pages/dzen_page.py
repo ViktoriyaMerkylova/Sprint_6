@@ -1,6 +1,7 @@
 import allure
 from selenium.webdriver.common.by import By
 from pages.base_pages import BasePages
+from curl import Curl
 
 
 class DzenPage(BasePages):
@@ -13,5 +14,6 @@ class DzenPage(BasePages):
     @allure.step('Проверка открытия страницы "Дзен"')
     def check_go_to_dzen(self):
         current_url = self.get_current_url()
-        assert current_url == "https://dzen.ru/?yredirect=true", 'Главная страница "Дзен" не открылась'
+        assert current_url == Curl.URL_DZEN
+
 
